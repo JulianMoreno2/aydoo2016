@@ -1,5 +1,12 @@
 package ar.edu.untref.aydoo;
-
+/**
+ * 
+ * @author juliani
+ * @parametros numero
+ * 
+ * Funcionalidades del programa: se pasa un numero por parametro e imprime por
+ * pantalla la descomposicion en sus factores primos.
+ */
 public class FactoresPrimos {
 	
 	private int numero;
@@ -12,7 +19,7 @@ public class FactoresPrimos {
 	public int getNumero(){
 		return this.numero;
 	}
-	
+
 	public void calcularFactoresPrimos()
 	{
 		while(this.numero > 1)
