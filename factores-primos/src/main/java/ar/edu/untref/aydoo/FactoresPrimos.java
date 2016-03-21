@@ -6,6 +6,8 @@ package ar.edu.untref.aydoo;
  * 
  * Funcionalidades del programa: se pasa un numero por parametro e imprime por
  * pantalla la descomposicion en sus factores primos.
+ * 
+ * 
  */
 public class FactoresPrimos {
 	
@@ -22,7 +24,7 @@ public class FactoresPrimos {
 
 	public void calcularFactoresPrimos()
 	{
-		while(this.numero > 1)
+		while(((this.numero%5) == 0) || ((this.numero%3) == 0) || ((this.numero%2) == 0))
 		{
 			if((this.numero%5) == 0)
 			{			
