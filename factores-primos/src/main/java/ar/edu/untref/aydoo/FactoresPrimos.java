@@ -12,44 +12,42 @@ package ar.edu.untref.aydoo;
 public class FactoresPrimos {
 	
 	private int numero;
+	private int factor;
+	private String factorizacion;
 	
 	public FactoresPrimos(int numero)
 	{
 		this.numero = numero;
+		this.factorizacion = "";
 	}
 	
 	public int getNumero(){
 		return this.numero;
 	}
 
-	public void calcularFactoresPrimos()
+	public String calcularFactoresPrimos()
 	{
-		while(((this.numero%5) == 0) || ((this.numero%3) == 0) || ((this.numero%2) == 0))
+		factor = 2;
+		while(this.numero >= 2)
 		{
-			if((this.numero%5) == 0)
-			{			
-				System.out.print(" 5 ");
-				this.numero = this.numero/5;				
+			if(this.numero%factor == 0){
+				this.factorizacion = factorizacion + " " + factor;
+				this.numero = this.numero/factor;	
 			
-			}else if((this.numero%3) == 0)
-			{
-				System.out.print(" 3 ");
-				this.numero = this.numero/3;
-			
-			}else if((this.numero%2) == 0)
-			{
-				System.out.print(" 2 ");
-				this.numero = this.numero/2;
+			}else{
+				factor++;
 			}
 		}
+		
+		return this.factorizacion;
 	}
 
 	 public static final void main(String arg[])
 	 {
 		 FactoresPrimos factorPrimo = new FactoresPrimos(Integer.parseInt(arg[0]));
 		 
-		 System.out.print("Factores primos de "+factorPrimo.getNumero()+":");
-		 factorPrimo.calcularFactoresPrimos();
+		 System.out.print("Factores primos de "+factorPrimo.getNumero()+":"
+				 					+ factorPrimo.calcularFactoresPrimos());
 		 System.out.println("");
 	 }
 }
