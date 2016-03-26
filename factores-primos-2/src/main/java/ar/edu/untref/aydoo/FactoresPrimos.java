@@ -1,4 +1,7 @@
 package ar.edu.untref.aydoo;
+
+import java.util.LinkedList;
+
 /**
  * 
  * @author juliani
@@ -13,27 +16,26 @@ public class FactoresPrimos {
 	
 	private int numero;
 	private int factor;
-	private String factorizacion;
+	private LinkedList<String> factorizacion;	
 	
 	public FactoresPrimos(int numero)
 	{
 		this.numero = numero;
-		this.factorizacion = "";
+		factorizacion = new LinkedList<String>();
 	}
 	
 	public int getNumero(){
 		return this.numero;
 	}
-
-	public String calcularFactoresPrimos()
+	
+	public LinkedList<String> calcularFactoresPrimos()
 	{
 		factor = 2;
 		while(this.numero >= 2)
 		{
 			if(this.numero%factor == 0){
-				this.factorizacion = factorizacion + " " + factor;
-				this.numero = this.numero/factor;	
-			
+				this.factorizacion.add(String.valueOf(factor));
+				this.numero = this.numero/factor;
 			}else{
 				factor++;
 			}

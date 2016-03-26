@@ -10,4 +10,5 @@ public class Program {
 				 					+ factorPrimo.calcularFactoresPrimos());
 		 System.out.println("");
 	 }
+
 }
