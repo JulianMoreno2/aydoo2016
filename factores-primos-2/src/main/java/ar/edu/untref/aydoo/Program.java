@@ -7,7 +7,7 @@ public class Program {
 		 try
 		 {			 
 			 FactoresPrimos factorPrimo = new FactoresPrimos(Integer.parseInt(arg[0]));
-
+			 
 			 if(arg.length == 1){
 				 
 				 System.out.print("Factores primos de "+factorPrimo.getNumero()+": ");
