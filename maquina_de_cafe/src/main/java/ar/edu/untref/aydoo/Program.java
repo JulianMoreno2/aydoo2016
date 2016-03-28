@@ -4,11 +4,7 @@ public class Program {
 
 	 public static final void main(String arg[])
 	 {
-		 if(arg.length == 1){
-			 
-			 System.out.println("Tienes que especificar la cantidad de cucharadas de azucar que desea");
-			 
-		 }else if(arg.length == 2){
+		 if(arg.length == 2){
 			 
 			 MaquinaExpendedoraDeBebidas maquina = new MaquinaExpendedoraDeBebidas();
 			 
@@ -24,14 +20,14 @@ public class Program {
 				 
 				 System.out.println("Las opciones validas son:");
 				 System.out.println("hacerCafeConLecheConNdeAzucar: n");
-				 System.out.println("hacerCafeConLecheConNdeAzucar: n");
+				 System.out.println("hacerTeConLecheConNdeAzucar: n");
 			 }
 			 
 		 }else{
 			 
 			 System.out.println("Las opciones validas son:");
 			 System.out.println("hacerCafeConLecheConNdeAzucar: n");
-			 System.out.println("hacerCafeConLecheConNdeAzucar: n");
+			 System.out.println("hacerTeConLecheConNdeAzucar: n");
 		 }
 		 
 	 }
