@@ -44,4 +44,15 @@ public class MaquinaExpendedoraTest {
 		
     }
 	
+	@Test
+    public void hacerTeConLecheCon4deAzucar()
+    {       
+		MaquinaExpendedoraDeBebidas maquina = new MaquinaExpendedoraDeBebidas();
+		maquina.hacerTeConLecheConNDeAzucar(4);
+		Assert.assertEquals("Te", maquina.getVaso().getContenido().get(0));
+		Assert.assertEquals("Leche", maquina.getVaso().getContenido().get(1));
+		Assert.assertEquals("4 de azucar", maquina.getVaso().getContenido().get(2));
+		
+    }
+	
 }
