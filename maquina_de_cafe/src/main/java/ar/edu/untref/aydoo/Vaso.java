@@ -6,18 +6,8 @@ public class Vaso {
 	
 	LinkedList<String> contenido;
 	
-	private static Vaso instance;
-	
-	private Vaso(){
+	public Vaso(){
 		contenido = new LinkedList<String>();
-	}
-	
-	public static Vaso getInstance(){
-		
-		if(instance == null){
-			instance = new Vaso();
-		}
-		return instance;
 	}
 	
 	public void setContenido(String contenidoParaAgregar){

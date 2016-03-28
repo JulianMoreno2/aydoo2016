@@ -8,7 +8,7 @@ public class MaquinaExpendedoraDeBebidas {
 	private Azucarero azucarero;
 	
 	public MaquinaExpendedoraDeBebidas(){
-		this.vaso = Vaso.getInstance();
+		this.vaso = new Vaso();
 		this.azucarero = new Azucarero();
 		this.hacedorDeCafeConLeche = new HacedorDeCafeConLeche();
 		this.hacedorDeTeConLeche = new HacedorDeTeConLeche();
