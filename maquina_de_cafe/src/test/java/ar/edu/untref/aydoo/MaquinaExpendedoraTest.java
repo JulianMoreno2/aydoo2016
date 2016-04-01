@@ -25,13 +25,7 @@ public class MaquinaExpendedoraTest {
 		Assert.assertEquals("Leche", vaso.getContenido().get(1));
     }	
 	
-	@Test
-	public void ponerAzucarEnVaso(){
-		Vaso vaso = new Vaso();
-		Azucarero azucarero = new Azucarero();
-		azucarero.ponerNenEsteVaso(vaso, 2);
-		Assert.assertEquals("2 de azucar", vaso.getContenido().get(0));
-	}
+	
 	
 	@Test
     public void hacerCafeConLecheCon2deAzucar()
