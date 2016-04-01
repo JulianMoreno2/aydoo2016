@@ -79,7 +79,6 @@ public class IntegracionTest {
 		centro.emitirVoto(new Voto("Buenos Aires", "Frente Progresista", "Stolbizer"));
 		centro.emitirVoto(new Voto("Buenos Aires", "Frende de izquierda", "Del Canio"));
 		
-		
 		Candidato candidatoEspeado = new Candidato("Fpv", "Scioli");
 		
 		Candidato candidatoObtenido = centro.candidatoGanadorNacional();
@@ -87,4 +86,26 @@ public class IntegracionTest {
 		Assert.assertEquals(candidatoEspeado.getNombre(), candidatoObtenido.getNombre());		
 	}
 
+	@Test
+	public void ganadorDeEleccionesDeUnPartidoAnivelProvincia(){
+		
+		CentroDeComputos centro = new CentroDeComputos();
+		
+		centro.emitirVoto(new Voto("Buenos Aires", "Pro", "Macri"));
+		centro.emitirVoto(new Voto("Cordoba", "Pro", "Macri"));
+		centro.emitirVoto(new Voto("Cordoba", "Pro", "Macri"));
+		centro.emitirVoto(new Voto("Buenos Aires", "Fpv", "Scioli"));
+		centro.emitirVoto(new Voto("Buenos Aires", "Fpv", "Scioli"));		
+		centro.emitirVoto(new Voto("Buenos Aires", "Fpv", "Scioli"));
+		centro.emitirVoto(new Voto("Cordoba", "Fpv", "Scioli"));
+		centro.emitirVoto(new Voto("Formosa", "Fpv", "Scioli"));
+		centro.emitirVoto(new Voto("Cordoba", "Frente Progresista", "Stolbizer"));
+		centro.emitirVoto(new Voto("Buenos Aires", "Frende de izquierda", "Del Canio"));
+		
+		Candidato candidatoEsperado = new Candidato("Pro", "Macri");
+		Candidato candidatoObtenido = centro.candidatoGanadorEnLaProvincia("Cordoba");
+		
+		
+		
+	}
 }

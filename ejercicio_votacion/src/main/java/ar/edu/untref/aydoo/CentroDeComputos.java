@@ -149,4 +149,61 @@ public class CentroDeComputos {
 		
 		return candidatoGanador;
 	}
+
+	public Candidato candidatoGanadorEnLaProvincia(String provincia) {
+		
+		Candidato candidatoGanador = null;
+		
+		Iterator<Voto> itVotos = listaDeVotos.iterator();
+		Voto votoActual = null;
+		
+		int votosMacri = 0;
+		int votosScioli = 0;
+		int votosStolbizer = 0;
+		int votosDelCanio = 0;
+		
+		while(itVotos.hasNext()){
+		
+			votoActual = itVotos.next();
+			
+			if(votoActual.getProvincia().equals(provincia)){
+				
+				if(votoActual.getCandidato().equals("Macri")){
+					
+					votosMacri++;
+					
+				}else if(votoActual.getCandidato().equals("Scioli")){
+					
+					votosScioli++;
+					
+				}else if(votoActual.getCandidato().equals("Stolbizer")){
+					
+					votosStolbizer++;
+					
+				}else if(votoActual.getCandidato().equals("Del Canio")){
+					
+					votosDelCanio++;
+				}
+			}					
+		}
+		
+		if(votosMacri > votosScioli && votosMacri > votosStolbizer && votosMacri > votosDelCanio){
+			
+			candidatoGanador = new Candidato("Pro","Macri");
+		
+		}else if (votosScioli > votosMacri && votosScioli > votosStolbizer && votosScioli > votosDelCanio){
+			
+			candidatoGanador = new Candidato("Fpv","Scioli");
+		
+		}else if (votosStolbizer > votosMacri && votosStolbizer > votosScioli && votosStolbizer > votosDelCanio){
+			
+			candidatoGanador =  new Candidato("Frente Progresista","Stolbizer");
+			
+		}else if (votosDelCanio > votosMacri && votosDelCanio > votosScioli && votosDelCanio > votosStolbizer){
+			
+			candidatoGanador = new Candidato("Frente de izquierda","Del Canio");
+		}
+		
+		return candidatoGanador;
+	}
 }
