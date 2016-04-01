@@ -26,7 +26,4 @@ public class Candidato{
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
-	
-
 }

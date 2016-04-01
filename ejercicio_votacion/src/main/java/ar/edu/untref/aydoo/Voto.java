@@ -7,6 +7,7 @@ public class Voto {
 	private String candidato;
 
 	public Voto(String provincia, String partido, String candidato) {
+		
 		this.setProvincia(provincia);
 		this.setPartido(partido);
 		this.setCandidato(candidato);

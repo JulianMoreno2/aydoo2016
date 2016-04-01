@@ -19,43 +19,48 @@ public class CentroDeComputos {
 		this.setCandidatos();
 	}
 	
-	public void emitirVoto(Voto votoEmitido) {
+	public void emitirVoto(Voto votoEmitido){
 		
 		if(this.validarVoto(votoEmitido)){
 
-			listaDeVotos.add(votoEmitido);
+			this.listaDeVotos.add(votoEmitido);
 		}		
 	}
 
-	public List<Voto> getListaDeVotos() {
-		return listaDeVotos;
+	public List<Voto> getListaDeVotos(){
+		return this.listaDeVotos;
 	}
 
-	public Boolean validarVoto(Voto voto) {
+	public Boolean validarVoto(Voto voto){
 		
-		Iterator<String> itProvincias = listaDeProvincias.iterator();
-		Iterator<Candidato> itCandidatos = listaDeCandidatos.iterator();
+		Iterator<String> itProvincias = this.listaDeProvincias.iterator();
+		Iterator<Candidato> itCandidatos = this.listaDeCandidatos.iterator();
+		
+		String provinciaActual = "";
+		Candidato candidatoActual = null;
 		
 		while(itProvincias.hasNext()){
 			
-			if(itProvincias.next().equals(voto.getProvincia())){
-				
+			provinciaActual = itProvincias.next();
+			
+			if(provinciaActual.equals(voto.getProvincia())){
+			
 				while(itCandidatos.hasNext()){
 					
-					Candidato candidatoActual = itCandidatos.next();
+					candidatoActual = itCandidatos.next();
 					
 					if(candidatoActual.getPartido().equals(voto.getPartido()) && candidatoActual.getNombre().equals(voto.getCandidato())){
-											
+						
 						return true;
 					}
 				}
 			}						
-			itProvincias.next();
+			
 		}		
 		return false;
 	}
 
-	public void setProvincias() {
+	public void setProvincias(){
 		
 		listaDeProvincias.add("Capital Federal");
 		listaDeProvincias.add("Buenos Aires");
@@ -88,8 +93,60 @@ public class CentroDeComputos {
 		listaDeCandidatos.add(new Candidato("Fpv","Scioli"));
 		listaDeCandidatos.add(new Candidato("Pro","Macri"));
 		listaDeCandidatos.add(new Candidato("Frente Progresista","Stolbizer"));
-		listaDeCandidatos.add(new Candidato("Frente de izquierda","Del Caño"));
+		listaDeCandidatos.add(new Candidato("Frente de izquierda","Del Canio"));
 	}
-	
-	
+
+	public Candidato candidatoGanadorNacional(){
+		
+		Voto votoActual;
+		Candidato candidatoGanador = null;
+		
+		int votosMacri = 0;
+		int votosScioli = 0;
+		int votosStolbizer = 0;
+		int votosDelCanio = 0;
+		
+		Iterator<Voto> itVotos = listaDeVotos.iterator();
+		
+		while(itVotos.hasNext()){
+			
+			votoActual = itVotos.next();
+			
+			if(votoActual.getCandidato().equals("Macri")){
+				
+				votosMacri++;
+			
+			}else if(votoActual.getCandidato().equals("Scioli")){
+				
+				votosScioli++;
+			
+			}else if(votoActual.getCandidato().equals("Stolbizer")){
+				
+				votosStolbizer++;
+			
+			}else if(votoActual.getCandidato().equals("Del Canio")){
+				
+				votosDelCanio++;
+			}			
+		}
+		
+		if(votosMacri > votosScioli && votosMacri > votosStolbizer && votosMacri > votosDelCanio){
+			
+			candidatoGanador = new Candidato("Pro","Macri");
+		
+		}else if (votosScioli > votosMacri && votosScioli > votosStolbizer && votosScioli > votosDelCanio){
+			
+			candidatoGanador = new Candidato("Fpv","Scioli");
+		
+		}else if (votosStolbizer > votosMacri && votosStolbizer > votosScioli && votosStolbizer > votosDelCanio){
+			
+			candidatoGanador =  new Candidato("Frente Progresista","Stolbizer");
+			
+		}else if (votosDelCanio > votosMacri && votosDelCanio > votosScioli && votosDelCanio > votosStolbizer){
+			
+			candidatoGanador = new Candidato("Frente de izquierda","Del Canio");
+		}
+		
+		return candidatoGanador;
+	}
 }
