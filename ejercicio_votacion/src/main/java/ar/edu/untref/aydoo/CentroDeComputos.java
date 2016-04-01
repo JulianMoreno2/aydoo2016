@@ -150,17 +150,17 @@ public class CentroDeComputos {
 		return candidatoGanador;
 	}
 
-	public Candidato candidatoGanadorEnLaProvincia(String provincia) {
+	public String partidoGanadorEnLaProvincia(String provincia) {
 		
-		Candidato candidatoGanador = null;
+		String partidoGanador = "";
 		
 		Iterator<Voto> itVotos = listaDeVotos.iterator();
 		Voto votoActual = null;
 		
-		int votosMacri = 0;
-		int votosScioli = 0;
-		int votosStolbizer = 0;
-		int votosDelCanio = 0;
+		int votosPro = 0;
+		int votosFpv = 0;
+		int votosFrenteProgresista = 0;
+		int votosFrenteIzquierda = 0;
 		
 		while(itVotos.hasNext()){
 		
@@ -168,42 +168,42 @@ public class CentroDeComputos {
 			
 			if(votoActual.getProvincia().equals(provincia)){
 				
-				if(votoActual.getCandidato().equals("Macri")){
+				if(votoActual.getPartido().equals("Pro")){
 					
-					votosMacri++;
+					votosPro++;
 					
-				}else if(votoActual.getCandidato().equals("Scioli")){
+				}else if(votoActual.getPartido().equals("Fpv")){
 					
-					votosScioli++;
+					votosFpv++;
 					
-				}else if(votoActual.getCandidato().equals("Stolbizer")){
+				}else if(votoActual.getPartido().equals("Frente Progresista")){
 					
-					votosStolbizer++;
+					votosFrenteProgresista++;
 					
-				}else if(votoActual.getCandidato().equals("Del Canio")){
+				}else if(votoActual.getPartido().equals("Frente de izquierda")){
 					
-					votosDelCanio++;
+					votosFrenteIzquierda++;
 				}
 			}					
 		}
 		
-		if(votosMacri > votosScioli && votosMacri > votosStolbizer && votosMacri > votosDelCanio){
+		if(votosPro > votosFpv && votosPro > votosFrenteProgresista && votosPro > votosFrenteIzquierda){
 			
-			candidatoGanador = new Candidato("Pro","Macri");
+			partidoGanador = "Pro";
 		
-		}else if (votosScioli > votosMacri && votosScioli > votosStolbizer && votosScioli > votosDelCanio){
+		}else if (votosFpv > votosPro && votosFpv > votosFrenteProgresista && votosFpv > votosFrenteIzquierda){
 			
-			candidatoGanador = new Candidato("Fpv","Scioli");
+			partidoGanador = "Fpv";
 		
-		}else if (votosStolbizer > votosMacri && votosStolbizer > votosScioli && votosStolbizer > votosDelCanio){
+		}else if (votosFrenteProgresista > votosPro && votosFrenteProgresista > votosFpv && votosFrenteProgresista > votosFrenteIzquierda){
 			
-			candidatoGanador =  new Candidato("Frente Progresista","Stolbizer");
+			partidoGanador =  "Frente Progresista";
 			
-		}else if (votosDelCanio > votosMacri && votosDelCanio > votosScioli && votosDelCanio > votosStolbizer){
+		}else if (votosFrenteIzquierda > votosPro && votosFrenteIzquierda > votosFpv && votosFrenteIzquierda > votosFrenteProgresista){
 			
-			candidatoGanador = new Candidato("Frente de izquierda","Del Canio");
+			partidoGanador = "Frente de izquierda";
 		}
 		
-		return candidatoGanador;
+		return partidoGanador;
 	}
 }

@@ -102,10 +102,9 @@ public class IntegracionTest {
 		centro.emitirVoto(new Voto("Cordoba", "Frente Progresista", "Stolbizer"));
 		centro.emitirVoto(new Voto("Buenos Aires", "Frende de izquierda", "Del Canio"));
 		
-		Candidato candidatoEsperado = new Candidato("Pro", "Macri");
-		Candidato candidatoObtenido = centro.candidatoGanadorEnLaProvincia("Cordoba");
+		String partidoEsperado = "Pro";
+		String partidoObtenido = centro.partidoGanadorEnLaProvincia("Cordoba");
 		
-		
-		
+		Assert.assertEquals(partidoEsperado,partidoObtenido);		
 	}
 }
