@@ -49,7 +49,7 @@ public class CentroDeComputos {
 					
 					candidatoActual = itCandidatos.next();
 					
-					if(candidatoActual.getPartido().equals(voto.getPartido()) && candidatoActual.getNombre().equals(voto.getCandidato())){
+					if(candidatoActual.getPartido().equals(voto.getCandidato().getPartido()) && candidatoActual.getNombre().equals(voto.getCandidato().getNombre())){
 						
 						return true;
 					}
@@ -112,19 +112,19 @@ public class CentroDeComputos {
 			
 			votoActual = itVotos.next();
 			
-			if(votoActual.getCandidato().equals("Macri")){
+			if(votoActual.getCandidato().getNombre().equals("Macri")){
 				
 				votosMacri++;
 			
-			}else if(votoActual.getCandidato().equals("Scioli")){
+			}else if(votoActual.getCandidato().getNombre().equals("Scioli")){
 				
 				votosScioli++;
 			
-			}else if(votoActual.getCandidato().equals("Stolbizer")){
+			}else if(votoActual.getCandidato().getNombre().equals("Stolbizer")){
 				
 				votosStolbizer++;
 			
-			}else if(votoActual.getCandidato().equals("Del Canio")){
+			}else if(votoActual.getCandidato().getNombre().equals("Del Canio")){
 				
 				votosDelCanio++;
 			}			
@@ -168,19 +168,19 @@ public class CentroDeComputos {
 			
 			if(votoActual.getProvincia().equals(provincia)){
 				
-				if(votoActual.getPartido().equals("Pro")){
+				if(votoActual.getCandidato().getPartido().equals("Pro")){
 					
 					votosPro++;
 					
-				}else if(votoActual.getPartido().equals("Fpv")){
+				}else if(votoActual.getCandidato().getPartido().equals("Fpv")){
 					
 					votosFpv++;
 					
-				}else if(votoActual.getPartido().equals("Frente Progresista")){
+				}else if(votoActual.getCandidato().getPartido().equals("Frente Progresista")){
 					
 					votosFrenteProgresista++;
 					
-				}else if(votoActual.getPartido().equals("Frente de izquierda")){
+				}else if(votoActual.getCandidato().getPartido().equals("Frente de izquierda")){
 					
 					votosFrenteIzquierda++;
 				}

@@ -9,7 +9,7 @@ public class IntegracionTest {
 	public void emitirVotoTest(){
 		
 		CentroDeComputos centro = new CentroDeComputos();
-		Voto votoEsperado = new Voto("Cordoba", "Fpv", "Scioli");
+		Voto votoEsperado = new Voto("Cordoba", new Candidato("Fpv", "Scioli"));
 		centro.emitirVoto(votoEsperado);
 	
 		Voto votoObtenido = (Voto)centro.getListaDeVotos().get(0);
@@ -21,7 +21,7 @@ public class IntegracionTest {
 	public void verificarSiElVotoEsValido(){
 		
 		CentroDeComputos centro = new CentroDeComputos();
-		Voto votoEsperado = new Voto("Cordoba", "Fpv", "Scioli");
+		Voto votoEsperado = new Voto("Cordoba", new Candidato("Fpv", "Scioli"));
 		
 		centro.getListaDeVotos().add(votoEsperado);
 		
@@ -34,7 +34,7 @@ public class IntegracionTest {
 	public void verificarVotoConPartidoInvalido(){
 		
 		CentroDeComputos centro = new CentroDeComputos();
-		Voto votoEsperado = new Voto("Cordoba", "Pro", "Scioli");
+		Voto votoEsperado = new Voto("Cordoba", new Candidato("Pro", "Scioli"));
 		
 		centro.getListaDeVotos().add(votoEsperado);
 		
@@ -48,9 +48,9 @@ public class IntegracionTest {
 		
 		CentroDeComputos centro = new CentroDeComputos();
 		
-		Voto votoScioli1 = new Voto("Formosa", "Fpv", "Scioli");
-		Voto votoScioli2 = new Voto("Formosa", "Fpv", "Scioli");
-		Voto votoMacri1 = new Voto("Formosa", "Pro", "Macri");
+		Voto votoScioli1 = new Voto("Formosa", new Candidato("Fpv", "Scioli"));
+		Voto votoScioli2 = new Voto("Formosa", new Candidato("Fpv", "Scioli"));
+		Voto votoMacri1 = new Voto("Formosa", new Candidato("Pro", "Macri"));
 		
 		centro.emitirVoto(votoScioli1);
 		centro.emitirVoto(votoScioli2);		
@@ -68,16 +68,16 @@ public class IntegracionTest {
 		
 		CentroDeComputos centro = new CentroDeComputos();
 		
-		centro.emitirVoto(new Voto("Buenos Aires", "Pro", "Macri"));
-		centro.emitirVoto(new Voto("Buenos Aires", "Pro", "Macri"));
-		centro.emitirVoto(new Voto("Buenos Aires", "Pro", "Macri"));
-		centro.emitirVoto(new Voto("Buenos Aires", "Fpv", "Scioli"));
-		centro.emitirVoto(new Voto("Buenos Aires", "Fpv", "Scioli"));		
-		centro.emitirVoto(new Voto("Buenos Aires", "Fpv", "Scioli"));
-		centro.emitirVoto(new Voto("Buenos Aires", "Fpv", "Scioli"));
-		centro.emitirVoto(new Voto("Buenos Aires", "Fpv", "Scioli"));
-		centro.emitirVoto(new Voto("Buenos Aires", "Frente Progresista", "Stolbizer"));
-		centro.emitirVoto(new Voto("Buenos Aires", "Frende de izquierda", "Del Canio"));
+		centro.emitirVoto(new Voto("Buenos Aires", new Candidato("Pro", "Macri")));
+		centro.emitirVoto(new Voto("Buenos Aires", new Candidato("Pro", "Macri")));
+		centro.emitirVoto(new Voto("Buenos Aires", new Candidato("Pro", "Macri")));
+		centro.emitirVoto(new Voto("Buenos Aires", new Candidato("Fpv", "Scioli")));
+		centro.emitirVoto(new Voto("Buenos Aires", new Candidato("Fpv", "Scioli")));		
+		centro.emitirVoto(new Voto("Buenos Aires", new Candidato("Fpv", "Scioli")));
+		centro.emitirVoto(new Voto("Buenos Aires", new Candidato("Fpv", "Scioli")));
+		centro.emitirVoto(new Voto("Buenos Aires", new Candidato("Fpv", "Scioli")));
+		centro.emitirVoto(new Voto("Buenos Aires", new Candidato("Frente Progresista", "Stolbizer")));
+		centro.emitirVoto(new Voto("Buenos Aires", new Candidato("Frende de izquierda", "Del Canio")));
 		
 		Candidato candidatoEspeado = new Candidato("Fpv", "Scioli");
 		
@@ -91,16 +91,16 @@ public class IntegracionTest {
 		
 		CentroDeComputos centro = new CentroDeComputos();
 		
-		centro.emitirVoto(new Voto("Buenos Aires", "Pro", "Macri"));
-		centro.emitirVoto(new Voto("Cordoba", "Pro", "Macri"));
-		centro.emitirVoto(new Voto("Cordoba", "Pro", "Macri"));
-		centro.emitirVoto(new Voto("Buenos Aires", "Fpv", "Scioli"));
-		centro.emitirVoto(new Voto("Buenos Aires", "Fpv", "Scioli"));		
-		centro.emitirVoto(new Voto("Buenos Aires", "Fpv", "Scioli"));
-		centro.emitirVoto(new Voto("Cordoba", "Fpv", "Scioli"));
-		centro.emitirVoto(new Voto("Formosa", "Fpv", "Scioli"));
-		centro.emitirVoto(new Voto("Cordoba", "Frente Progresista", "Stolbizer"));
-		centro.emitirVoto(new Voto("Buenos Aires", "Frende de izquierda", "Del Canio"));
+		centro.emitirVoto(new Voto("Buenos Aires", new Candidato("Pro", "Macri")));
+		centro.emitirVoto(new Voto("Cordoba", new Candidato("Pro", "Macri")));
+		centro.emitirVoto(new Voto("Cordoba", new Candidato("Pro", "Macri")));
+		centro.emitirVoto(new Voto("Buenos Aires", new Candidato("Fpv", "Scioli")));
+		centro.emitirVoto(new Voto("Buenos Aires", new Candidato("Fpv", "Scioli")));		
+		centro.emitirVoto(new Voto("Buenos Aires", new Candidato("Fpv", "Scioli")));
+		centro.emitirVoto(new Voto("Cordoba", new Candidato("Fpv", "Scioli")));
+		centro.emitirVoto(new Voto("Formosa", new Candidato("Fpv", "Scioli")));
+		centro.emitirVoto(new Voto("Cordoba", new Candidato("Frente Progresista", "Stolbizer")));
+		centro.emitirVoto(new Voto("Buenos Aires", new Candidato("Frende de izquierda", "Del Canio")));
 		
 		String partidoEsperado = "Pro";
 		String partidoObtenido = centro.partidoGanadorEnLaProvincia("Cordoba");

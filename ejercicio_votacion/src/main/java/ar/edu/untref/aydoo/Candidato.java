@@ -7,23 +7,15 @@ public class Candidato{
 	
 	public Candidato(String partido, String nombre){
 		
-		this.setPartido(partido);
-		this.setNombre(nombre);
+		this.partido = partido;
+		this.nombre = nombre;
 	}
 
 	public String getPartido() {
 		return partido;
 	}
 
-	public void setPartido(String partido) {
-		this.partido = partido;
-	}
-
 	public String getNombre() {
 		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
 	}
 }

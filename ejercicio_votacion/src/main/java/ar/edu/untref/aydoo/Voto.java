@@ -3,40 +3,19 @@ package ar.edu.untref.aydoo;
 public class Voto {
 	
 	private String provincia;
-	private String partido;
-	private String candidato;
+	private Candidato candidato;
 
-	public Voto(String provincia, String partido, String candidato) {
+	public Voto(String provincia, Candidato candidato) {
 		
-		this.setProvincia(provincia);
-		this.setPartido(partido);
-		this.setCandidato(candidato);
-	}
-
-	public String getPartido() {
-		return partido;
-	}
-
-	public void setPartido(String partido) {
-		this.partido = partido;
+		this.provincia = provincia;
+		this.candidato = candidato;
 	}
 
 	public String getProvincia() {
 		return provincia;
 	}
 
-	public void setProvincia(String provincia) {
-		this.provincia = provincia;
-	}
-
-	public String getCandidato() {
+	public Candidato getCandidato() {
 		return candidato;
 	}
-
-	public void setCandidato(String candidato) {
-		this.candidato = candidato;
-	}
-	
-	
-
 }
