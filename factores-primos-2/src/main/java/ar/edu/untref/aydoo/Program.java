@@ -2,45 +2,29 @@ package ar.edu.untref.aydoo;
 
 public class Program {
 
-	 public static final void main(String arg[])
-	 {	
-		 try
-		 {			 
-			 FactoresPrimos factorPrimo = new FactoresPrimos(Integer.parseInt(arg[0]));
+	 public static final void main(String arg[]){
+		 
+		 try{					 
 			 
-			 if(arg.length == 1){
-				 
-				 System.out.print("Factores primos de "+factorPrimo.getNumero()+": ");
-				 
-				 for(int i = 0; i < factorPrimo.calcularFactoresPrimos().size();i++){
-					 System.out.print(factorPrimo.calcularFactoresPrimos().get(i)+" ");
-				 }
-				 System.out.println("");	
-				 
-				 
-			 }else if (arg.length == 2){
-	
-				 if(arg[1].toLowerCase().equals("--format=pretty") || arg[1].toLowerCase() == null){
-					 
-					 System.out.print("Factores primos de "+factorPrimo.getNumero()+": ");
-					 
-					 for(int i = 0; i < factorPrimo.calcularFactoresPrimos().size();i++){
-						 System.out.print(factorPrimo.calcularFactoresPrimos().get(i)+" ");
-					 }
-					 System.out.println("");			 
-					 
-				 }else if(arg[1].toLowerCase().equals("--format=quiet")){
-					 
-					 for(int i = factorPrimo.calcularFactoresPrimos().size()-1; i >= 0 ;i--){
-						 System.out.println(factorPrimo.calcularFactoresPrimos().get(i)+" ");
-					 }
-					 System.out.println("");
-					 
-				 }else{
-					 
-					 System.out.println("Formato no aceptado. Las opciones posibles son : pretty o quiet");
-				 }
-			 }
+			FactoresPrimos factorPrimo = new FactoresPrimos(Integer.parseInt(arg[0]));
+			Formateador formateador = new Formateador(factorPrimo);
+						
+			if(arg.length == 1){				 
+						 
+				formateador.formatear("");
+				formateador.mostrar();
+			 
+		 	}else if (arg.length == 2){					
+				
+		 		formateador.formatear(arg[1]);
+		 		formateador.mostrar();
+		 		
+		 	}else{
+		 		
+		 		System.out.println("Errores de formato, vuelva a intentar");
+		 	}
+			
+			System.out.println("");	
 			 
 		 }catch(ArrayIndexOutOfBoundsException e){
 			 

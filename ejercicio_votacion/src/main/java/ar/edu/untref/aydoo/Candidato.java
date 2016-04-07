@@ -12,10 +12,12 @@ public class Candidato{
 	}
 
 	public String getPartido() {
+		
 		return partido;
 	}
 
 	public String getNombre() {
+		
 		return nombre;
 	}
 }

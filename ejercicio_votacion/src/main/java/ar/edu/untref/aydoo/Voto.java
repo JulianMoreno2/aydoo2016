@@ -12,10 +12,12 @@ public class Voto {
 	}
 
 	public String getProvincia() {
+		
 		return provincia;
 	}
 
 	public Candidato getCandidato() {
+		
 		return candidato;
 	}
 }

@@ -6,8 +6,8 @@ import org.junit.Test;
 public class MaquinaExpendedoraTest {
 	
 	@Test
-    public void hacerCafeConLecheSinAzucar()
-    {       
+    public void hacerCafeConLecheSinAzucar(){
+		
 		Vaso vaso = new Vaso();
 		HacedorDeCafeConLeche hacedorDeCafeConLeche = new HacedorDeCafeConLeche();
 		hacedorDeCafeConLeche.prepararEnEsteVaso(vaso);
@@ -16,20 +16,18 @@ public class MaquinaExpendedoraTest {
     }	  
 	
 	@Test
-    public void hacerTeConLecheSinAzucar()
-    {       
+    public void hacerTeConLecheSinAzucar(){
+		
 		Vaso vaso = new Vaso();
 		HacedorDeTeConLeche hacedorDeTeConLeche = new HacedorDeTeConLeche();
 		hacedorDeTeConLeche.prepararEnEsteVaso(vaso);
 		Assert.assertEquals("Te", vaso.getContenido().get(0));
 		Assert.assertEquals("Leche", vaso.getContenido().get(1));
-    }	
-	
-	
+    }		
 	
 	@Test
-    public void hacerCafeConLecheCon2deAzucar()
-    {       
+    public void hacerCafeConLecheCon2deAzucar(){ 
+		
 		MaquinaExpendedoraDeBebidas maquina = new MaquinaExpendedoraDeBebidas();
 		maquina.hacerCafeConLecheConNDeAzucar(2);
 		Assert.assertEquals("Cafe", maquina.getVaso().getContenido().get(0));
@@ -39,14 +37,13 @@ public class MaquinaExpendedoraTest {
     }
 	
 	@Test
-    public void hacerTeConLecheCon4deAzucar()
-    {       
+    public void hacerTeConLecheCon4deAzucar(){
+		
 		MaquinaExpendedoraDeBebidas maquina = new MaquinaExpendedoraDeBebidas();
 		maquina.hacerTeConLecheConNDeAzucar(4);
 		Assert.assertEquals("Te", maquina.getVaso().getContenido().get(0));
 		Assert.assertEquals("Leche", maquina.getVaso().getContenido().get(1));
 		Assert.assertEquals("4 de azucar", maquina.getVaso().getContenido().get(2));
 		
-    }
-	
+    }	
 }

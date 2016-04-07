@@ -28,6 +28,7 @@ public class CentroDeComputos {
 	}
 
 	public List<Voto> getListaDeVotos(){
+		
 		return this.listaDeVotos;
 	}
 
