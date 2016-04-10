@@ -2,14 +2,14 @@ package ar.edu.untref.aydoo;
 
 public class Producto {
 
-	private int precio;
+	private double precio;
 	private String nombre;
 
-	public int getPrecio() {
+	public double getPrecio() {
 		return precio;
 	}
 
-	public void setPrecio(int precio) {
+	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
 

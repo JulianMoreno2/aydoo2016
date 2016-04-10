@@ -4,7 +4,6 @@ import java.util.LinkedList;
 
 public class Libreria {
 	
-	private Cliente cliente;
 	private LinkedList<Cliente> listaDeClientes;
 	
 	public Libreria(){	
@@ -14,12 +13,21 @@ public class Libreria {
 	public void agregarCliente(Cliente cliente) {
 		listaDeClientes.add(cliente);
 	}
-
-	public Cliente getCliente(){
-		return this.cliente;
-	}
 	
 	public LinkedList<Cliente> getListaDeClientes(){
 		return listaDeClientes;
+	}
+
+	public double calcularMontoTotal(Mes mes, Cliente cliente) {
+		
+		double montoTotal = 0;
+		for(Compra compra : cliente.getListaDeCompras()){
+			
+			for(Producto producto : compra.getListaDeProductos()){
+				
+				montoTotal += producto.getPrecio();
+			}
+		}				
+		return montoTotal;
 	}
 }

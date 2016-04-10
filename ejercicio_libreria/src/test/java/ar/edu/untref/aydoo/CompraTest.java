@@ -52,7 +52,6 @@ public class CompraTest {
 		
 		compra.agregarProducto(periodico);
 		
-		Assert.assertEquals(1, compra.getListaDeProductos().size());
-		
+		Assert.assertEquals(1, compra.getListaDeProductos().size());		
 	}
 }
