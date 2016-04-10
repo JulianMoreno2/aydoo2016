@@ -8,7 +8,7 @@ public class ClienteTest {
 	@Test
 	public void clienteHaceUnaCompraEnAgosto(){
 		
-		Cliente cliente = new Cliente("Pablo");
+		Cliente cliente = new Cliente("Pablo", "azquenaga 888");
 		Mes agosto = new Mes("Agosto");
 		Producto lapicera = new ArticuloDeLibreria("Lapicera", 5);
 		Compra compra = new Compra(agosto);

@@ -1,6 +1,6 @@
 package ar.edu.untref.aydoo;
 
-public class Periodico extends Producto {
+public class Periodico extends Producto implements Suscribible {
 	
 	private Periodicidad periodicidad;
 
@@ -10,7 +10,7 @@ public class Periodico extends Producto {
 		this.periodicidad = periodicidad;
 	}
 	
-	public Periodicidad getPeriodicidad(){
-		return this.periodicidad;
+	public int getPeriodicidad(){
+		return 30/this.periodicidad.getPeriodo();
 	}
 }

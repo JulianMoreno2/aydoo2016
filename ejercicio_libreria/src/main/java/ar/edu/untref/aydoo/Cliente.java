@@ -5,11 +5,17 @@ import java.util.LinkedList;
 public class Cliente {
 	
 	private String nombre;
+	private String direccion;
 	private LinkedList<Compra> listaDeCompras;
 
-	public Cliente(String nombre) {
+	public Cliente(String nombre, String direccion) {
 		this.nombre = nombre;
+		this.direccion = direccion;
 		this.listaDeCompras = new LinkedList<Compra>();
+	}
+	
+	public String getDireccion(){
+		return this.direccion;
 	}
 	
 	public String getNombre(){

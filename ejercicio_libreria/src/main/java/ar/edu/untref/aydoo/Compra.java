@@ -23,4 +23,17 @@ public class Compra {
 	public LinkedList<Producto> getListaDeProductos() {
 		return this.listaDeProductos;
 	}
+
+	public void agregarProductoSuscribible(Suscribible productoSuscribible, boolean suscripcionAnual) {
+				
+		Producto productoParaAgregar = (Producto) productoSuscribible;
+		
+		if(suscripcionAnual){
+			productoParaAgregar.setPrecio(productoParaAgregar.getPrecio()-(productoParaAgregar.getPrecio()*0.2));
+		}
+		
+		for(int i = 0; i < productoSuscribible.getPeriodicidad(); i++){
+			this.listaDeProductos.add(productoParaAgregar);
+		}
+	}
 }

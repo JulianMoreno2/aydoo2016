@@ -4,6 +4,6 @@ public class ArticuloDeLibreria extends Producto {
 
 	public ArticuloDeLibreria(String nombre, double precio) {
 		super.setNombre(nombre);
-		super.setPrecio(precio);
+		super.setPrecio(precio*1.21);
 	}
 }
