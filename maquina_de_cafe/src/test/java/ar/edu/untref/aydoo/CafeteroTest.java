@@ -17,5 +17,4 @@ public class CafeteroTest {
 		
 		Assert.assertEquals(vasoEsperado.getContenido().get(0), vasoObtenido.getContenido().get(0));		
 	}
-
 }

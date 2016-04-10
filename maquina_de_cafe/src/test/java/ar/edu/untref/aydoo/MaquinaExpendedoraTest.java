@@ -33,7 +33,6 @@ public class MaquinaExpendedoraTest {
 		Assert.assertEquals("Cafe", maquina.getVaso().getContenido().get(0));
 		Assert.assertEquals("Leche", maquina.getVaso().getContenido().get(1));
 		Assert.assertEquals("2 de azucar", maquina.getVaso().getContenido().get(2));
-		
     }
 	
 	@Test
@@ -44,6 +43,5 @@ public class MaquinaExpendedoraTest {
 		Assert.assertEquals("Te", maquina.getVaso().getContenido().get(0));
 		Assert.assertEquals("Leche", maquina.getVaso().getContenido().get(1));
 		Assert.assertEquals("4 de azucar", maquina.getVaso().getContenido().get(2));
-		
-    }	
+	}	
 }

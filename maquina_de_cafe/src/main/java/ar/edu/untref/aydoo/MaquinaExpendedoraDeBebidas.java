@@ -41,5 +41,4 @@ public class MaquinaExpendedoraDeBebidas {
 	public Vaso getVaso(){
 		return this.vaso;
 	}
-
 }

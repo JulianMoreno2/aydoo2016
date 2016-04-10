@@ -17,8 +17,5 @@ public class HacedorDeTeTest {
 		hacedorDeTe.prepararEnEsteVaso(vasoObtenido);
 		
 		Assert.assertEquals(vasoEsperado.getContenido().get(0), vasoObtenido.getContenido().get(0));		
-	}
-
-
-	
+	}	
 }

@@ -2,8 +2,8 @@ package ar.edu.untref.aydoo;
 
 public class Program {
 
-	 public static final void main(String arg[])
-	 {
+	 public static final void main(String arg[]){
+		 
 		 if(arg.length == 2){
 			 
 			 MaquinaExpendedoraDeBebidas maquina = new MaquinaExpendedoraDeBebidas();
@@ -28,8 +28,6 @@ public class Program {
 			 System.out.println("Las opciones validas son:");
 			 System.out.println("hacerCafeConLecheConNdeAzucar: n");
 			 System.out.println("hacerTeConLecheConNdeAzucar: n");
-		 }
-		 
+		 }		 
 	 }
-
 }

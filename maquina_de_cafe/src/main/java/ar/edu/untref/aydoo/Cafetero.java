@@ -8,5 +8,4 @@ public class Cafetero {
 		vaso.setContenido("Cafe");
 		System.out.println("Hacedor de Cafe: devolver vaso.");
 	}
-
 }

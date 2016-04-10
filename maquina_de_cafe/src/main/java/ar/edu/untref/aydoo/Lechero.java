@@ -9,5 +9,4 @@ public class Lechero {
 		System.out.println("Lechero: devolver vaso");
 		return vaso;
 	}
-
 }
