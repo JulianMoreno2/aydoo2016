@@ -29,7 +29,7 @@ public class LibreriaTest {
 		marcos.agregarCompra(compra);
 		libreria.agregarCliente(marcos);
 		
-		Assert.assertEquals(montoEsperado, libreria.calcularMontoTotal(noviembre,marcos), 0.0);		
+		Assert.assertEquals(montoEsperado, libreria.calcularMontoTotal(marcos), 0.0);		
 	}
 	
 	@Test
@@ -48,7 +48,7 @@ public class LibreriaTest {
 		compra.agregarProducto(folios);
 		pablo.agregarCompra(compra);		
 		
-		Assert.assertEquals(montoEsperado, libreria.calcularMontoTotal(mayo, pablo), 0.0);
+		Assert.assertEquals(montoEsperado, libreria.calcularMontoTotal(pablo), 0.0);
 	}
 	
 	@Test
@@ -73,7 +73,7 @@ public class LibreriaTest {
 				
 		double montoEsperado = 92.1;
 		
-		Assert.assertEquals(montoEsperado, libreria.calcularMontoTotal(agosto, juan), 0.0);
+		Assert.assertEquals(montoEsperado, libreria.calcularMontoTotal(juan), 0.0);
 	}
 	
 	@Test
@@ -92,7 +92,7 @@ public class LibreriaTest {
 				
 		double montoEsperado = 50;
 		
-		Assert.assertEquals(montoEsperado, libreria.calcularMontoTotal(febrero, pedro), 0.0);
+		Assert.assertEquals(montoEsperado, libreria.calcularMontoTotal(pedro), 0.0);
 	}	
 	
 	@Test
@@ -114,6 +114,6 @@ public class LibreriaTest {
 		
 		double montoEsperado = 44;
 		
-		Assert.assertEquals(montoEsperado, libreria.calcularMontoTotal(enero, maria), 0.0);
+		Assert.assertEquals(montoEsperado, libreria.calcularMontoTotal(maria), 0.0);
 	}
 }

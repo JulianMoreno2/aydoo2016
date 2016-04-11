@@ -12,16 +12,16 @@ public class Compra {
 		this.listaDeProductos = new LinkedList<Producto>();
 	}
 
-	public void agregarProducto(Producto producto) {
-		this.listaDeProductos.add(producto);		
-	}
-
 	public Mes getMes() {
 		return mes;
 	}
 
 	public LinkedList<Producto> getListaDeProductos() {
 		return this.listaDeProductos;
+	}
+
+	public void agregarProducto(Producto producto) {
+		this.listaDeProductos.add(producto);		
 	}
 
 	public void agregarProductoSuscribible(Suscribible productoSuscribible, boolean suscripcionAnual) {

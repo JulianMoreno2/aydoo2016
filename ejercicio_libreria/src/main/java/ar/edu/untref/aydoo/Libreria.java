@@ -18,7 +18,7 @@ public class Libreria {
 		return listaDeClientes;
 	}
 
-	public double calcularMontoTotal(Mes mes, Cliente cliente) {
+	public double calcularMontoTotal(Cliente cliente) {
 		
 		double montoTotal = 0;
 		for(Compra compra : cliente.getListaDeCompras()){
