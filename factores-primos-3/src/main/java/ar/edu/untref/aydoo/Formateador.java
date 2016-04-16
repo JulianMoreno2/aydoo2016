@@ -39,8 +39,8 @@ public class Formateador {
 				for(int i = 0; i < this.factores.calcularFactoresPrimos().size();i++){
 					factorizacionFormateada.add(this.factores.calcularFactoresPrimos().get(i)+" ");
 				}				
-			//}else{
-				//factorizacionFormateada.add("Problemas de formato detectados");
+			}else{
+				factorizacionFormateada.add("Problemas de formato detectados");
 			}
 			
 			this.escribirEnArchivo(this.nombreArchivo, factorizacionFormateada);
