@@ -133,4 +133,21 @@ public class FormateadorTest {
 		
 		Assert.assertEquals(listaEsperada, formato.getFactorizacionFormateada());
 	}
+	
+	@Test
+	public void formatear10ConPrettyYGuardarSinEspecificarArchivo(){
+		
+		FactoresPrimos factores = new FactoresPrimos(10);
+		Formateador formato = new Formateador(factores);
+		
+		formato.formatear("--format=pretty","");
+		
+		LinkedList<String> listaEsperada = new LinkedList<String>();
+		listaEsperada.add("Factores primos de "+ factores.getNumeroOriginal()+": ");
+		listaEsperada.add("2 ");
+		listaEsperada.add("5 ");
+		String nombreDeArchivoEsperado = "salida.txt";
+		
+		Assert.assertEquals(nombreDeArchivoEsperado, formato.getNombreArchivo());
+	}
 }
