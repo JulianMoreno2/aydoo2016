@@ -1,5 +1,6 @@
 package ar.edu.untref.aydoo;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -34,12 +35,12 @@ public class Formateador {
 						
 			factorizacionFormateada.add("Factores primos de "+ this.factores.getNumero()+": ");
 			
-			if(opcionAdicional.equals("") || opcionAdicional.toLowerCase().equals("--output-file="+this.nombreArchivo)){
+			if(opcionAdicional.equals("") || opcionAdicional.equals("--output-file="+this.nombreArchivo)){
 				for(int i = 0; i < this.factores.calcularFactoresPrimos().size();i++){
 					factorizacionFormateada.add(this.factores.calcularFactoresPrimos().get(i)+" ");
 				}				
-			}else{
-				System.out.println("Problemas de formato detectados");
+			//}else{
+				//factorizacionFormateada.add("Problemas de formato detectados");
 			}
 			
 			this.escribirEnArchivo(this.nombreArchivo, factorizacionFormateada);
@@ -51,14 +52,12 @@ public class Formateador {
 			if(opcionAdicional.toLowerCase().equals("") || opcionAdicional.toLowerCase().equals("--sort:asc")){
 				for(int i = this.factores.calcularFactoresPrimos().size()-1; i >= 0 ;i--){
 					factorizacionFormateada.add(this.factores.calcularFactoresPrimos().get(i)+"\n");
-				}
-				
+				}				
 			}else if(opcionAdicional.toLowerCase().equals("--sort:des")){
 				for(int i = 0; i < this.factores.calcularFactoresPrimos().size() ;i++){
 					factorizacionFormateada.add(this.factores.calcularFactoresPrimos().get(i)+"\n");
 				}
-			}
-			
+			}			
 			this.mostrar();
 			
 		 }else{
@@ -78,7 +77,7 @@ public class Formateador {
 		
 		File archivoNuevo = new File(this.nombreArchivo);
 		try {
-			FileWriter escritor = new FileWriter(archivoNuevo,false);
+			BufferedWriter escritor = new BufferedWriter(new FileWriter(archivoNuevo));
 			for(String str : this.factorizacionFormateada){
 				escritor.write(str);				
 			}
@@ -88,8 +87,7 @@ public class Formateador {
 		}
 	}
 
-	public String getNombreArchivo() {
-		
+	public String getNombreArchivo() {		
 		return this.nombreArchivo;
 	}
 }

@@ -15,7 +15,11 @@ public class Program {
 			 
 		 	}else if (arg.length == 2){					
 				
-		 		formateador.formatear(arg[1],arg[2]);
+		 		formateador.formatear(arg[1],"");
+		 		
+		 	}else if (arg.length == 3){
+		 		
+		 		formateador.formatear(arg[1], arg[2]);
 		 		
 		 	}else{
 		 		

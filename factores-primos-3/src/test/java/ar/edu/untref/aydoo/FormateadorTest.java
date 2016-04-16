@@ -71,9 +71,9 @@ public class FormateadorTest {
 	}
 	
 	@Test
-	public void formatear10sinFormat(){
+	public void formatear100sinFormat(){
 		
-		FactoresPrimos factores = new FactoresPrimos(10);
+		FactoresPrimos factores = new FactoresPrimos(100);
 		Formateador formato = new Formateador(factores);
 		
 		formato.formatear("","");
@@ -81,6 +81,8 @@ public class FormateadorTest {
 		LinkedList<String> listaEsperada = new LinkedList<String>();
 		listaEsperada.add("Factores primos de "+ factores.getNumeroOriginal()+": ");
 		listaEsperada.add("2 ");
+		listaEsperada.add("2 ");
+		listaEsperada.add("5 ");
 		listaEsperada.add("5 ");
 	
 		Assert.assertEquals(listaEsperada, formato.getFactorizacionFormateada());
@@ -164,6 +166,24 @@ public class FormateadorTest {
 		listaEsperada.add("2 ");
 		listaEsperada.add("5 ");
 		String nombreDeArchivoEsperado = "factorizacion.txt";
+		
+		Assert.assertEquals(nombreDeArchivoEsperado, formato.getNombreArchivo());
+	}
+	
+	@Test
+	public void formatear100ConPrettyYGuardarEnArchivoConOtraRuta(){
+		
+		FactoresPrimos factores = new FactoresPrimos(100);
+		Formateador formato = new Formateador(factores);
+		formato.formatear("--format=pretty","--output-file=/home/juliani/Documents/factorizacion.txt");
+		
+		LinkedList<String> listaEsperada = new LinkedList<String>();
+		listaEsperada.add("Factores primos de "+ factores.getNumeroOriginal()+": ");
+		listaEsperada.add("2 ");
+		listaEsperada.add("2 ");
+		listaEsperada.add("5 ");
+		listaEsperada.add("5 ");
+		String nombreDeArchivoEsperado = "/home/juliani/Documents/factorizacion.txt";
 		
 		Assert.assertEquals(nombreDeArchivoEsperado, formato.getNombreArchivo());
 	}
