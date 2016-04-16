@@ -101,4 +101,20 @@ public class FormateadorTest {
 		
 		Assert.assertEquals(listaEsperada, formato.getFactorizacionFormateada());
 	}
+	
+	@Test
+	public void formatear10ConQuietYConOrdenAscendente(){
+		
+		FactoresPrimos factores = new FactoresPrimos(10);
+		Formateador formato = new Formateador(factores);
+		
+		formato.formatear("--format=quiet","--sort:asc");
+		
+		LinkedList<String> listaEsperada = new LinkedList<String>();
+		listaEsperada.add("");
+		listaEsperada.add("5\n");
+		listaEsperada.add("2\n");
+		
+		Assert.assertEquals(listaEsperada, formato.getFactorizacionFormateada());
+	}
 }
