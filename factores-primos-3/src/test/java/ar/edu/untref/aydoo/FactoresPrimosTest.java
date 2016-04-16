@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class FormateadorTest {
+public class FactoresPrimosTest {
 	
 	@Test
     public void factorizarNumero2(){
@@ -48,11 +48,10 @@ public class FormateadorTest {
     }
     
 	@Test
-	public void factorizarNumero360(){
+    public void factorizarNumero360(){
 		
         FactoresPrimos factorizador = new FactoresPrimos(360);
         LinkedList<String> resultado = factorizador.calcularFactoresPrimos();
         Assert.assertEquals(" 2 2 2 3 3 5", " " + resultado.get(0)+" "+resultado.get(1)+" "+resultado.get(2)+" "+resultado.get(3)+" "+resultado.get(4)+" "+resultado.get(5));
-
-	}
+    }
 }
