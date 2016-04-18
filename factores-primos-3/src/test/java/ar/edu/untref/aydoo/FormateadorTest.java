@@ -21,7 +21,7 @@ public class FormateadorTest {
 	
 		Assert.assertEquals(listaEsperada, formato.getFactorizacionFormateada());
 	}
-	
+
 	@Test
 	public void formatear4ConPretty(){
 		
@@ -135,7 +135,7 @@ public class FormateadorTest {
 		
 		Assert.assertEquals(listaEsperada, formato.getFactorizacionFormateada());
 	}
-	
+
 	@Test
 	public void formatear10ConPrettyYGuardarSinEspecificarArchivo(){
 		
@@ -148,11 +148,10 @@ public class FormateadorTest {
 		listaEsperada.add("Factores primos de "+ factores.getNumeroOriginal()+": ");
 		listaEsperada.add("2 ");
 		listaEsperada.add("5 ");
-		String nombreDeArchivoEsperado = "salida.txt";
 		
-		Assert.assertEquals(nombreDeArchivoEsperado, formato.getNombreArchivo());
+		Assert.assertEquals(listaEsperada, formato.getFactorizacionFormateada());
 	}
-	
+
 	@Test
 	public void formatear10ConPrettyYGuardarloEnArchivoFactorizacionTxT(){
 		

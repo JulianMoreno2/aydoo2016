@@ -26,24 +26,17 @@ public class Formateador {
 		
 		if(formato.equals("") || formato.toLowerCase().equals("--format=pretty")){
 			
-			if(!opcionAdicional.equals("")){
+			factorizacionFormateada.add("Factores primos de "+ this.factores.getNumero()+": ");
+			if(!opcionAdicional.equals("")){				
 				String[] arrayOpcionAdicionalSeparada = opcionAdicional.split("=");
 				this.nombreArchivo = arrayOpcionAdicionalSeparada[1];
-			}else{
-				this.nombreArchivo = "salida.txt";
-			}
-						
-			factorizacionFormateada.add("Factores primos de "+ this.factores.getNumero()+": ");
+				agregarFactorALista();	
+				this.escribirEnArchivo(this.nombreArchivo, factorizacionFormateada);
 			
-			if(opcionAdicional.equals("") || opcionAdicional.equals("--output-file="+this.nombreArchivo)){
-				for(int i = 0; i < this.factores.calcularFactoresPrimos().size();i++){
-					factorizacionFormateada.add(this.factores.calcularFactoresPrimos().get(i)+" ");
-				}				
-			}else{
-				factorizacionFormateada.add("Problemas de formato detectados");
-			}
-			
-			this.escribirEnArchivo(this.nombreArchivo, factorizacionFormateada);
+			}else{			
+				agregarFactorALista();
+				mostrar();
+			}			
 			 
 		}else if(formato.toLowerCase().equals("--format=quiet")){
 			
@@ -65,9 +58,14 @@ public class Formateador {
 			 factorizacionFormateada.add("Formato no aceptado. Las opciones posibles son : pretty o quiet");
 		 }
 	}
+
+	private void agregarFactorALista() {
+		for(int i = 0; i < this.factores.calcularFactoresPrimos().size();i++){
+			factorizacionFormateada.add(this.factores.calcularFactoresPrimos().get(i)+" ");
+		}
+	}
 	
-	public void mostrar(){
-		
+	private void mostrar(){		
 		for(String str : this.factorizacionFormateada){			
 			System.out.print(str);
 		}
