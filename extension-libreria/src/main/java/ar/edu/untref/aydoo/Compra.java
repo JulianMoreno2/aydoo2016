@@ -14,12 +14,10 @@ public class Compra {
 	}
 
 	public void setNroMes(int mes) {
-
 		this.nroMes = mes;
 	}
 
 	public int getNroMes() {
-
 		return this.nroMes;
 	}
 
@@ -31,14 +29,12 @@ public class Compra {
 		}
 		return precioCalculado;
 	}
-
+	
 	public boolean contiene(Producto unProducto) {
-
 		return this.productosComprados.contains(unProducto);
 	}
 
-	public void agregarProducto(Producto unProducto) throws Exception {
-
+	public void agregarProducto(Producto unProducto){
 		this.productosComprados.add(unProducto);
 	}
 

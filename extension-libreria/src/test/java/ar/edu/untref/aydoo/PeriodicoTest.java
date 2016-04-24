@@ -5,14 +5,6 @@ import org.junit.Test;
 
 public class PeriodicoTest {
 
-
-	@Test(expected=Exception.class)
-	public void periodicidadNegativa() throws Exception {
-
-		Periodico vlarin = new Periodico(null, 0.0);
-		vlarin.setPeriodicidad(-4);
-	}
-
 	@Test
 	public void pagina12a30() throws Exception {
 

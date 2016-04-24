@@ -1,22 +1,20 @@
 package ar.edu.untref.aydoo;
 
-public class Revista extends Producto {
+public class Revista extends Producto implements Suscribible{
 
 	private int periodicidad;
 
-	public Revista(String nombre, Double precio) throws Exception {
+	public Revista(String nombre, Double precio){
 		super(nombre, precio);
+		super.setPermisoDeSuscripcion();
 	}
 
 	public int getPeriodicidad() {
-
 		return this.periodicidad;
 	}
 	
-	public void setPeriodicidad(int periodicidad) throws Exception {
-		if (periodicidad <= 0) {
-			throw new Exception("La periodicidad no puede ser 0 o negativa!");
-		} else {
+	public void setPeriodicidad(int periodicidad) {
+		if (periodicidad > 0){
 			this.periodicidad = periodicidad;
 		}
 	}

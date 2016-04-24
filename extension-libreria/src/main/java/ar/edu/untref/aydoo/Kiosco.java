@@ -25,10 +25,9 @@ public class Kiosco {
 
 		this.clientesHabituales.add(cliente);
 	}
-
+	
 	public Boolean esClienteHabitual(Cliente cliente) {
 
 		return this.clientesHabituales.contains(cliente);
 	}
-
 }

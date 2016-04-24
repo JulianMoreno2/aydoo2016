@@ -4,10 +4,12 @@ public class Producto {
 
 	private String nombre;
 	private Double precio;
+	private boolean permiteSuscripcion;
 
-	public Producto(String nombre, Double precio) throws Exception {
+	public Producto(String nombre, Double precio){
 		this.setNombre(nombre);
 		this.setPrecio(precio);
+		this.permiteSuscripcion = false;
 	}
 
 	public String getNombre() {
@@ -21,13 +23,20 @@ public class Producto {
 	public Double getPrecio() {
 		return this.precio;
 	}
-
-	public void setPrecio(Double precio) throws Exception {
-		if (precio >= 0) {
+	/**
+	 * modify by Rain
+	 */
+	public void setPrecio(Double precio){
+		if (precio > 0) {
 			this.precio = precio;
-		} else {
-			throw new Exception("Error: Producto con precio negativo");
 		}
+	}
 
+	public boolean permiteLaSuscripcion() {
+		return permiteSuscripcion;
+	}
+	
+	public void setPermisoDeSuscripcion(){
+		this.permiteSuscripcion = true;
 	}
 }

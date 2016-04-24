@@ -5,13 +5,6 @@ import org.junit.Test;
 
 public class ProductoTest {
 
-	@Test(expected=Exception.class)
-	public void noValePrecioNegativo() throws Exception{
-
-		Producto test = new Producto(null, 0.00);
-		test.setPrecio(-81.9);
-	}
-	
 	@Test
 	public void nombreProducto() throws Exception {
 

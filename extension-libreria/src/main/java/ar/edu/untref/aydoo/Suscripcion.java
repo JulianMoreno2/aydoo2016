@@ -6,7 +6,6 @@ public class Suscripcion extends Compra {
 
 	public Suscripcion() {
 		super();
-		// predetemino
 		this.anualidad = false;
 	}
 
@@ -18,22 +17,19 @@ public class Suscripcion extends Compra {
 		return this.anualidad;
 	}
 
-	public void agregarProducto(Producto unProducto) throws Exception {
-		// TODOO: control tipo... creo con instanceof hacerlo
-		if (unProducto instanceof ArticuloDeLibreria || unProducto instanceof Libro) {
-			throw new Exception("art de libreria o libro NO pueden tenet suscripcion");
+	public void agregarProducto(Producto producto){
+		if(producto.permiteLaSuscripcion()){
+			super.agregarProducto(producto);			
 		}
-		// continuando sin entrar al if:
-		super.agregarProducto(unProducto);
 	}
 
 	private Double calcularCualEsPrecioFinal() {
 		Double precioAcalcular = 0.0;
-		for (Producto produ : this.productosComprados) {
-			if (produ instanceof Periodico) {
-				precioAcalcular = (((Periodico) produ).getPeriodicidad() * produ.getPrecio());
-			} else {
-				precioAcalcular = (((Revista) produ).getPeriodicidad() * produ.getPrecio());
+		for (Producto producto : this.productosComprados) {
+			if(producto.permiteLaSuscripcion()){
+				precioAcalcular = ((Suscribible) producto).getPeriodicidad() * producto.getPrecio();		
+			}else{
+				precioAcalcular = producto.getPrecio();
 			}
 		}
 		return precioAcalcular;

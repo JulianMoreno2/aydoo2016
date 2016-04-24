@@ -4,7 +4,7 @@ public class ArticuloDeLibreria extends Producto {
 
 	private Double montoIva = null;
 
-	public ArticuloDeLibreria(String nombre, Double precio) throws Exception {
+	public ArticuloDeLibreria(String nombre, Double precio) {
 		super(nombre, precio);
 		this.setMontoIva();
 	}

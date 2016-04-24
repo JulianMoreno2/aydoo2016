@@ -5,16 +5,8 @@ import org.junit.Test;
 
 public class RevistaTest {
 
-	//comportamiento idem periodico:
-	@Test(expected=Exception.class)
-	public void periodicidadNegativa() throws Exception {
-
-		Revista vlarin = new Revista(null, 0.0);
-		vlarin.setPeriodicidad(-4);
-	}
-
 	@Test
-	public void pagina12a30() throws Exception {
+	public void pagina12a30() {
 
 		Revista pagina12 = new Revista(null, 0.0);
 		pagina12.setPeriodicidad(30);
@@ -23,7 +15,7 @@ public class RevistaTest {
 	}
 
 	@Test
-	public void seAgregaNombreAlRevistaAlSerCreado() throws Exception {
+	public void seAgregaNombreAlRevistaAlSerCreado() {
 
 		Revista pagina12 = new Revista("pagina 12", 0.0);
 		pagina12.setPeriodicidad(2);

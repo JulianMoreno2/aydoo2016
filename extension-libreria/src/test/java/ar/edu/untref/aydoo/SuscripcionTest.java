@@ -5,24 +5,18 @@ import org.junit.Test;
 
 public class SuscripcionTest {
 
-	@Test(expected = Exception.class)
-	public void LibrosNOSePuedeAProductos() throws Exception {
-
-		Producto malena = new Libro("malena", 223.0);
-		Suscripcion suscripcion = new Suscripcion();
-		suscripcion.agregarProducto(malena);
-	}
-
-	@Test(expected = Exception.class)
-	public void ArticuloDeLibreriaNOSePuedeAProductos() throws Exception {
+	@Test
+	public void articuloDeLibreriaNoSeAgregaAListaDeProductos(){
 
 		Producto malena = new ArticuloDeLibreria("malena", 223.0);
 		Suscripcion suscripcion = new Suscripcion();
 		suscripcion.agregarProducto(malena);
+		
+		Assert.assertTrue(!suscripcion.contiene(malena));
 	}
 
 	@Test
-	public void controlaTieneSuscripcionRevistaCargada() throws Exception {
+	public void agregaRevistaAUnaSuscripcion() {
 
 		Producto parati = new Revista("parati", 80.0);
 		Suscripcion suscripcion = new Suscripcion();
@@ -41,7 +35,7 @@ public class SuscripcionTest {
 	}
 
 	@Test
-	public void suscripcionNoAnualYPrecioRevista() throws Exception {
+	public void suscripcionNoAnualYPrecioRevista() {
 
 		Producto barcelona = new Revista("barcelona", 30.0);
 		Suscripcion suscripcion = new Suscripcion();
@@ -53,7 +47,7 @@ public class SuscripcionTest {
 	}
 
 	@Test
-	public void suscripcionAnualYPrecioRevista() throws Exception {
+	public void suscripcionAnualYPrecioRevista() {
 
 		Producto barcelona = new Revista("barcelona", 30.0);
 		Suscripcion suscripcion = new Suscripcion();
@@ -66,7 +60,7 @@ public class SuscripcionTest {
 	}
 	
 	@Test
-	public void suscripcionNoAnualYPrecioDiario() throws Exception {
+	public void suscripcionNoAnualYPrecioDiario(){
 
 		Producto pagina12 = new Periodico("pagina/d12", 10.0);
 		Suscripcion suscripcion = new Suscripcion();
@@ -76,5 +70,16 @@ public class SuscripcionTest {
 
 		Assert.assertEquals(300.0, suscripcion.getPrecio(), 0.0);
 	}
-
+	
+	@Test
+	public void suscripcionMensualDeUnLibro(){
+		
+		Producto libroDeCiencia = new Libro("Ciencia", 10.0);
+		Suscripcion suscripcion = new Suscripcion();
+		((Libro) libroDeCiencia).setPeriodicidad(30);
+		suscripcion.agregarProducto(libroDeCiencia);
+		
+		Assert.assertEquals(300.0, suscripcion.getPrecio(), 0.0);
+		
+	}
 }
