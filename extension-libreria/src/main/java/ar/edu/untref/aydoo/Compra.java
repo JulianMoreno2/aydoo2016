@@ -9,8 +9,7 @@ public class Compra {
 	protected List<Producto> productosComprados;
 
 	public Compra() {
-		this.productosComprados = new ArrayList<Producto>(); // con un producto
-																// vacio!
+		this.productosComprados = new ArrayList<Producto>();
 	}
 
 	public void setNroMes(int mes) {
@@ -37,5 +36,4 @@ public class Compra {
 	public void agregarProducto(Producto unProducto){
 		this.productosComprados.add(unProducto);
 	}
-
 }

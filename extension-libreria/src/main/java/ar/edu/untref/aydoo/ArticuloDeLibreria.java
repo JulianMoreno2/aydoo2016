@@ -2,15 +2,15 @@ package ar.edu.untref.aydoo;
 
 public class ArticuloDeLibreria extends Producto {
 
-	private Double montoIva = null;
+	private double montoIva = 0.0;
 
-	public ArticuloDeLibreria(String nombre, Double precio) {
+	public ArticuloDeLibreria(String nombre, double precio) {
 		super(nombre, precio);
 		this.setMontoIva();
 	}
 
-	public Double getPrecio() {
-		Double valor =  this.getMontoIva() + super.getPrecio();
+	public double getPrecio() {
+		double valor =  this.getMontoIva() + super.getPrecio();
 		return valor;
 	}
 
@@ -18,7 +18,7 @@ public class ArticuloDeLibreria extends Producto {
 		this.montoIva =  0.21 * super.getPrecio();
 	}
 
-	public Double getMontoIva() {
+	public double getMontoIva() {
 		return this.montoIva;
 	}
 

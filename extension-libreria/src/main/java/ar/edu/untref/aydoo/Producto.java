@@ -3,10 +3,10 @@ package ar.edu.untref.aydoo;
 public class Producto {
 
 	private String nombre;
-	private Double precio;
+	private double precio;
 	private boolean permiteSuscripcion;
 
-	public Producto(String nombre, Double precio){
+	public Producto(String nombre, double precio){
 		this.setNombre(nombre);
 		this.setPrecio(precio);
 		this.permiteSuscripcion = false;
@@ -20,7 +20,7 @@ public class Producto {
 		this.nombre = string;
 	}
 
-	public Double getPrecio() {
+	public double getPrecio() {
 		return this.precio;
 	}
 	/**

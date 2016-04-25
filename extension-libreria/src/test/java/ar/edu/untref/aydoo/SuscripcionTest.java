@@ -70,16 +70,4 @@ public class SuscripcionTest {
 
 		Assert.assertEquals(300.0, suscripcion.getPrecio(), 0.0);
 	}
-	
-	@Test
-	public void suscripcionMensualDeUnLibro(){
-		
-		Producto libroDeCiencia = new Libro("Ciencia", 10.0);
-		Suscripcion suscripcion = new Suscripcion();
-		((Libro) libroDeCiencia).setPeriodicidad(30);
-		suscripcion.agregarProducto(libroDeCiencia);
-		
-		Assert.assertEquals(300.0, suscripcion.getPrecio(), 0.0);
-		
-	}
 }

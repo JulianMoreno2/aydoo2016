@@ -1,21 +1,24 @@
 package ar.edu.untref.aydoo;
 
-public class Libro extends Producto implements Suscribible{
+public class Libro extends Producto{
 	
-	private int periodicidad;
+	public Alquiler alquiler;
 	
-	//por ahora solo constructor:
-	public Libro(String nombre, Double precio) {
+	public Libro(String nombre, double precio) {
 		super(nombre, precio);
-		super.setPermisoDeSuscripcion();
-	}
-	public int getPeriodicidad() {
-		return this.periodicidad;
+		this.alquiler = new Alquiler(0);
+		this.alquiler.setPrecio(precio);
 	}
 	
-	public void setPeriodicidad(int periodicidad) {
-		if (periodicidad > 0){
-			this.periodicidad = periodicidad;
-		}
+	public void setAlquiler(Alquiler alquiler){
+		this.alquiler = alquiler;
+	}
+	
+	public Alquiler getAlquiler(){
+		return this.alquiler;
+	}
+	
+	public double getPrecio(){
+		return this.alquiler.getPrecio();
 	}
 }
