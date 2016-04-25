@@ -105,3 +105,15 @@ sentido y tienen errores. Ademas, como señalo el profesor en clase, al usar
 excepciones, se deben crear las propias o en su defecto, heredar de
 RunTimeException. Otro punto a destacar es el intento de aplicar la tecnica
 tdd para resolver el problema planteado. 
+
+Modificaciones realizadas para la consigna:
+
+A traves del test AlquilerTest hice los correspondientes test para crear las
+clases Alquiler, que tiene de hijos a AlquilerDiario, AlquilerMensual y 
+AlquilerCuatrimestral. Estas clases sobreescriben el metodo 
+estaDentroDelPeriodoCorrecto porque cada alquiler tiene sus propias
+restricciones. Ademas en el constructor de cada una, se calcula el precio
+correspondiente a traves del metodo setPrecio que heredan de Alquiler.
+Y ademas agregue mas comportamientos al Libro.
+Tambien agregue tests a la clase KioscoTest para corroborar que los alquileres
+de los libros se suman a la compra de un determinado cliente.
