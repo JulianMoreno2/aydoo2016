@@ -116,6 +116,50 @@ public class KioscoTest {
 		Assert.assertEquals(40.0, valor, 0.000);
 	}
 
-	
+	@Test
+	public void clienteAlquilaUnLibroConAlquilerMensual(){
+		
+		Kiosco kiosco = new Kiosco();
+		Cliente cliente = new Cliente("pedro", "peron 2322");
+		Compra compra = new Compra();
+		compra.setNroMes(3);
 
+		Alquiler alquilerMensual = new AlquilerMensual(3);
+		Producto libro = new Libro("Libro maya", 250.0);
+		((Libro) libro).setAlquiler(alquilerMensual);
+		
+		compra.agregarProducto(libro);		
+		cliente.sumarCompra(compra);
+		kiosco.agregarCliente(cliente);
+		
+		double valorEsperado = 600.0;		
+		double valor = kiosco.calcularMontoACobrar(3, cliente);
+		
+		Assert.assertEquals(valorEsperado, valor, 0.000);		
+	}
+	
+	@Test
+	public void clienteAlquilaDiezDiasUnLibroYCompraUnaLapicera(){
+		
+		Kiosco kiosco = new Kiosco();
+		Cliente cliente = new Cliente("Esteban", "quito 9393");
+		Compra compra = new Compra();	
+		compra.setNroMes(5);
+
+		Alquiler alquilerMensual = new AlquilerDiario(10);
+		Producto libro = new Libro("Libro azteca", 100.0);
+		((Libro) libro).setAlquiler(alquilerMensual);
+		
+		Producto lapicera = new ArticuloDeLibreria("lapicera", 10.0);
+		
+		compra.agregarProducto(libro);
+		compra.agregarProducto(lapicera);
+		cliente.sumarCompra(compra);
+		kiosco.agregarCliente(cliente);
+		
+		double valorEsperado = 112.1;		
+		double valor = kiosco.calcularMontoACobrar(5, cliente);
+		
+		Assert.assertEquals(valorEsperado, valor, 0.000);		
+	}
 }

@@ -20,8 +20,4 @@ public class AlquilerCuatrimestral extends Alquiler{
 		
 		return super.estaDentroDelPeriodoCorrecto();
 	}
-	
-	public double getPrecio(){
-		return super.getPrecio() + (super.getPrecio() * 0.1);
-	}
 }

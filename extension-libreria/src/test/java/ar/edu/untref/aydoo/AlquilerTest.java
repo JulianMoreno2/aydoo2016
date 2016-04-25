@@ -56,7 +56,7 @@ public class AlquilerTest {
 	}
 	
 	@Test
-	public void calculaElPrecioDelAlquilerDiario(){
+	public void calculaElPrecioDelAlquilerDiarioDeUnLibro(){
 		
 		Alquiler alquilerDiario = new AlquilerDiario(10);
 		Producto libro = new Libro("Libro de la selva", 10.0);
@@ -64,6 +64,32 @@ public class AlquilerTest {
 		((Libro)libro).setAlquiler(alquilerDiario);
 		
 		double precioEsperado = 100.0;
+		
+		Assert.assertEquals(precioEsperado, libro.getPrecio(), 0.0);
+	}
+	
+	@Test
+	public void calculaElPrecioDelAlquilerMensualDeUnLibro(){
+		
+		Alquiler alquilerMensual = new AlquilerMensual(2);
+		Producto libro = new Libro("Libro guiness", 20.0);
+		
+		((Libro) libro).setAlquiler(alquilerMensual);
+		
+		double precioEsperado = 400;
+		
+		Assert.assertEquals(precioEsperado, libro.getPrecio(), 0.0);
+	}
+	
+	@Test
+	public void calculaElPrecioDelAlquilerCuatrimestralDeUnLibro(){
+		
+		Alquiler alquilerCuatrimestral = new AlquilerCuatrimestral(2);
+		Producto libro = new Libro("Libro de artes marciales", 20.0);
+		
+		((Libro) libro).setAlquiler(alquilerCuatrimestral);
+		
+		double precioEsperado = 360;
 		
 		Assert.assertEquals(precioEsperado, libro.getPrecio(), 0.0);
 	}
