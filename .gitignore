@@ -1,6 +1,16 @@
 *.class
 target
-setting
+.metadata
+.setting
+.classpath
+.DS_Store
+.project
+.recommenders
+gitpush.sh
+*.iml
+.idea
+*~
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
