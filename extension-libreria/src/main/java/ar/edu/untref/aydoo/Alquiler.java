@@ -17,7 +17,11 @@ public class Alquiler {
 	}
 	
 	public void setPrecio(double precio){
-		this.precio = precio;
+		if(precio > 0){
+			this.precio = precio;			
+		}else{
+			throw new RuntimeException("El precio no puede ser negativo");
+		}
 	}
 	
 	public double getPrecio(){

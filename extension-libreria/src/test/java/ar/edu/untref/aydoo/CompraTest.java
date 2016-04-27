@@ -2,9 +2,10 @@ package ar.edu.untref.aydoo;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class CompraTest {
-
+	
 	@Test
 	public void contieneLibro() throws Exception {
 
@@ -14,6 +15,15 @@ public class CompraTest {
 		compra.agregarProducto(papa);
 
 		Assert.assertTrue(compra.contiene(papa));
+	}
+	
+	@Test (expected = RuntimeException.class)
+	public void elMesNoPuedeSerNegativo(){
+		
+		Compra compra = new Compra();
+		compra.setNroMes(-1);
+		
+		Assert.assertEquals(-1, compra.getNroMes());
 	}
 	
 	@Test

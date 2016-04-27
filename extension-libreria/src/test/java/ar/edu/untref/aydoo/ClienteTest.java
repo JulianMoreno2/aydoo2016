@@ -9,7 +9,7 @@ public class ClienteTest {
 
 	
 	@Test
-	public void clienteAgregaSuscripcionASuListaDeCompras() throws Exception{
+	public void clienteAgregaSuscripcionASuListaDeCompras(){
 
 		Suscripcion suscripcion = new Suscripcion();
 		Cliente cliente = new Cliente("gg", "hh 77");
@@ -45,7 +45,7 @@ public class ClienteTest {
 	}
 
 	@Test
-	public void clienteCompra() throws Exception{
+	public void clienteCompra() {
 
 		Cliente cliente = new Cliente("gg", "hh 77");
 		Compra compra = new Compra();

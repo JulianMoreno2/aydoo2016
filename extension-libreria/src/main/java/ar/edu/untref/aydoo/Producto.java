@@ -1,5 +1,7 @@
 package ar.edu.untref.aydoo;
 
+import javax.management.RuntimeErrorException;
+
 public class Producto {
 
 	private String nombre;
@@ -8,7 +10,11 @@ public class Producto {
 
 	public Producto(String nombre, double precio){
 		this.setNombre(nombre);
-		this.setPrecio(precio);
+		if(precio > 0){
+			this.setPrecio(precio);
+		}else{
+			throw new RuntimeException("El precio no puede ser negativo");
+		}
 		this.permiteSuscripcion = false;
 	}
 
@@ -29,6 +35,8 @@ public class Producto {
 	public void setPrecio(Double precio){
 		if (precio > 0) {
 			this.precio = precio;
+		}else{
+			throw new RuntimeException("El precio no puede ser negativo");
 		}
 	}
 

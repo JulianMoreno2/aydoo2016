@@ -13,7 +13,11 @@ public class Compra {
 	}
 
 	public void setNroMes(int mes) {
-		this.nroMes = mes;
+		if(mes > 0){
+			this.nroMes = mes;
+		}else{
+			throw new RuntimeException("El numero del mes no puede ser negativo");
+		}
 	}
 
 	public int getNroMes() {

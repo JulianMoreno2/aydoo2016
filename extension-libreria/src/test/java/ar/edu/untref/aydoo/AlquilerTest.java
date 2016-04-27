@@ -55,6 +55,14 @@ public class AlquilerTest {
 		Assert.assertTrue(alquiler.estaDentroDelPeriodoCorrecto());
 	}
 	
+	@Test (expected = RuntimeException.class)
+	public void elPrecioNoPuedeSerNegativo(){
+		
+		Alquiler alquiler = new Alquiler(0);
+		alquiler.setPrecio(-1.0);
+		
+		Assert.assertEquals(-1, alquiler.getPrecio(),0.0);
+	}
 	@Test
 	public void calculaElPrecioDelAlquilerDiarioDeUnLibro(){
 		
