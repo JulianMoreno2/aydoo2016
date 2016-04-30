@@ -1,6 +1,7 @@
 package ar.edu.untref.aydoo;
 
 import java.util.LinkedList;
+import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -8,182 +9,88 @@ import org.junit.Test;
 public class FormateadorTest {
 	
 	@Test
-	public void formatear2ConPretty(){
+	public void formateaListaDeUnElementoEnPretty(){
 		
-		FactoresPrimos factores = new FactoresPrimos(2);
-		Formateador formato = new Formateador(factores);
+		Formateador formateador = new Formateador();
 		
-		formato.formatear("--format=pretty","");
+		List<String> listaAFormatear = new LinkedList<String>();
+		listaAFormatear.add("2");
 		
-		LinkedList<String> listaEsperada = new LinkedList<String>();
-		listaEsperada.add("Factores primos de "+ factores.getNumeroOriginal()+": ");
-		listaEsperada.add("2 ");
-	
-		Assert.assertEquals(listaEsperada, formato.getFactorizacionFormateada());
-	}
-
-	@Test
-	public void formatear4ConPretty(){
-		
-		FactoresPrimos factores = new FactoresPrimos(4);
-		Formateador formato = new Formateador(factores);
-		
-		formato.formatear("--format=pretty","");
-		
-		LinkedList<String> listaEsperada = new LinkedList<String>();
-		listaEsperada.add("Factores primos de "+ factores.getNumeroOriginal()+": ");
-		listaEsperada.add("2 ");
+		List<String> listaEsperada = new LinkedList<String>();
 		listaEsperada.add("2 ");
 		
-		Assert.assertEquals(listaEsperada, formato.getFactorizacionFormateada());
+		Assert.assertEquals(listaEsperada,formateador.darFormato(listaAFormatear, "pretty"));
 	}
 	
 	@Test
-	public void formatear10ConPretty(){
+	public void formateaListaDeTresElementosEnPretty(){
 		
-		FactoresPrimos factores = new FactoresPrimos(10);
-		Formateador formato = new Formateador(factores);
+		Formateador formateador = new Formateador();
 		
-		formato.formatear("--format=pretty","");
+		List<String> listaAFormatear = new LinkedList<String>();
+		listaAFormatear.add("2");
+		listaAFormatear.add("2");
+		listaAFormatear.add("2");
 		
-		LinkedList<String> listaEsperada = new LinkedList<String>();
-		listaEsperada.add("Factores primos de "+ factores.getNumeroOriginal()+": ");
+		List<String> listaEsperada = new LinkedList<String>();
 		listaEsperada.add("2 ");
-		listaEsperada.add("5 ");
+		listaEsperada.add("2 ");
+		listaEsperada.add("2 ");
 		
-		Assert.assertEquals(listaEsperada, formato.getFactorizacionFormateada());
+		Assert.assertEquals(listaEsperada,formateador.darFormato(listaAFormatear, "pretty"));
 	}
 	
 	@Test
-	public void formatear10ConQuiet(){
+	public void formateaListaDeUnElementoSinFormato(){
 		
-		FactoresPrimos factores = new FactoresPrimos(10);
-		Formateador formato = new Formateador(factores);
+		Formateador formateador = new Formateador();
 		
-		formato.formatear("--format=quiet","");
+		List<String> listaAFormatear = new LinkedList<String>();
+		listaAFormatear.add("2");
 		
-		LinkedList<String> listaEsperada = new LinkedList<String>();
-		listaEsperada.add("");
-		listaEsperada.add("5\n");
-		listaEsperada.add("2\n");
-	
-		Assert.assertEquals(listaEsperada, formato.getFactorizacionFormateada());
+		List<String> listaEsperada = new LinkedList<String>();
+		listaEsperada.add("2 ");
+		
+		Assert.assertEquals(listaEsperada,formateador.darFormato(listaAFormatear, " "));
 	}
 	
 	@Test
-	public void formatear100sinFormat(){
+	public void formateaListaDeUnElementoConQUiet(){
 		
-		FactoresPrimos factores = new FactoresPrimos(100);
-		Formateador formato = new Formateador(factores);
+		Formateador formateador = new Formateador();
 		
-		formato.formatear("","");
+		List<String> listaAFormatear = new LinkedList<String>();
+		listaAFormatear.add("2");
 		
-		LinkedList<String> listaEsperada = new LinkedList<String>();
-		listaEsperada.add("Factores primos de "+ factores.getNumeroOriginal()+": ");
-		listaEsperada.add("2 ");
-		listaEsperada.add("2 ");
-		listaEsperada.add("5 ");
-		listaEsperada.add("5 ");
-	
-		Assert.assertEquals(listaEsperada, formato.getFactorizacionFormateada());
-	}
-	
-	@Test
-	public void formatear10ConQuietYSinOrdenEspecificado(){
-		
-		FactoresPrimos factores = new FactoresPrimos(10);
-		Formateador formato = new Formateador(factores);
-		
-		formato.formatear("--format=quiet","");
-		
-		LinkedList<String> listaEsperada = new LinkedList<String>();
-		listaEsperada.add("");
-		listaEsperada.add("5\n");
+		List<String> listaEsperada = new LinkedList<String>();
 		listaEsperada.add("2\n");
 		
-		Assert.assertEquals(listaEsperada, formato.getFactorizacionFormateada());
+		Assert.assertEquals(listaEsperada,formateador.darFormato(listaAFormatear, "quiet"));
 	}
 	
 	@Test
-	public void formatear10ConQuietYConOrdenAscendente(){
+	public void formateaListaDeTresElementosConQUiet(){
 		
-		FactoresPrimos factores = new FactoresPrimos(10);
-		Formateador formato = new Formateador(factores);
+		Formateador formateador = new Formateador();
 		
-		formato.formatear("--format=quiet","--sort:asc");
+		List<String> listaAFormatear = new LinkedList<String>();
+		listaAFormatear.add("2");
+		listaAFormatear.add("2");
+		listaAFormatear.add("2");
 		
-		LinkedList<String> listaEsperada = new LinkedList<String>();
-		listaEsperada.add("");
-		listaEsperada.add("5\n");
+		List<String> listaEsperada = new LinkedList<String>();
+		listaEsperada.add("2\n");
+		listaEsperada.add("2\n");
 		listaEsperada.add("2\n");
 		
-		Assert.assertEquals(listaEsperada, formato.getFactorizacionFormateada());
+		Assert.assertEquals(listaEsperada,formateador.darFormato(listaAFormatear, "quiet"));
 	}
 	
-	@Test
-	public void formatear10ConQuietYConOrdenDescendente(){
+	@Test (expected = EntradaInvalidaException.class)
+	public void formatoNoAceptado(){
 		
-		FactoresPrimos factores = new FactoresPrimos(10);
-		Formateador formato = new Formateador(factores);
+		Formateador formateador = new Formateador();
 		
-		formato.formatear("--format=quiet","--sort:des");
-		
-		LinkedList<String> listaEsperada = new LinkedList<String>();
-		listaEsperada.add("");
-		listaEsperada.add("2\n");
-		listaEsperada.add("5\n");
-		
-		Assert.assertEquals(listaEsperada, formato.getFactorizacionFormateada());
-	}
-
-	@Test
-	public void formatear10ConPrettyYGuardarSinEspecificarArchivo(){
-		
-		FactoresPrimos factores = new FactoresPrimos(10);
-		Formateador formato = new Formateador(factores);
-		
-		formato.formatear("--format=pretty","");
-		
-		LinkedList<String> listaEsperada = new LinkedList<String>();
-		listaEsperada.add("Factores primos de "+ factores.getNumeroOriginal()+": ");
-		listaEsperada.add("2 ");
-		listaEsperada.add("5 ");
-		
-		Assert.assertEquals(listaEsperada, formato.getFactorizacionFormateada());
-	}
-
-	@Test
-	public void formatear10ConPrettyYGuardarloEnArchivoFactorizacionTxT(){
-		
-		FactoresPrimos factores = new FactoresPrimos(10);
-		Formateador formato = new Formateador(factores);
-		
-		formato.formatear("--format=pretty","--output-file=factorizacion.txt");
-		
-		LinkedList<String> listaEsperada = new LinkedList<String>();
-		listaEsperada.add("Factores primos de "+ factores.getNumeroOriginal()+": ");
-		listaEsperada.add("2 ");
-		listaEsperada.add("5 ");
-		String nombreDeArchivoEsperado = "factorizacion.txt";
-		
-		Assert.assertEquals(nombreDeArchivoEsperado, formato.getNombreArchivo());
-	}
-	
-	@Test
-	public void formatear100ConPrettyYGuardarEnArchivoConOtraRuta(){
-		
-		FactoresPrimos factores = new FactoresPrimos(100);
-		Formateador formato = new Formateador(factores);
-		formato.formatear("--format=pretty","--output-file=/home/juliani/Documents/factorizacion.txt");
-		
-		LinkedList<String> listaEsperada = new LinkedList<String>();
-		listaEsperada.add("Factores primos de "+ factores.getNumeroOriginal()+": ");
-		listaEsperada.add("2 ");
-		listaEsperada.add("2 ");
-		listaEsperada.add("5 ");
-		listaEsperada.add("5 ");
-		String nombreDeArchivoEsperado = "/home/juliani/Documents/factorizacion.txt";
-		
-		Assert.assertEquals(nombreDeArchivoEsperado, formato.getNombreArchivo());
+		formateador.darFormato(new LinkedList<String>(), "nada");
 	}
 }

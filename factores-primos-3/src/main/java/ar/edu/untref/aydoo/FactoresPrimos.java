@@ -11,50 +11,23 @@ import java.util.LinkedList;
  */
 public class FactoresPrimos {
 	
-	private int numero;
-	private int numeroOriginal;
-	private int factor;
 	private LinkedList<String> factorizacion;	
 	
-	public FactoresPrimos(int numero)
-	{
-		this.numero = numero;
-		this.numeroOriginal = numero;
+	public FactoresPrimos(){
 		factorizacion = new LinkedList<String>();
 	}
 	
-	public int getNumero(){
-		
-		return this.numero;
-	}
-	
-	public int getFactor(){
-		
-		return this.factor;		
-	}
-	
-	public LinkedList<String> calcularFactoresPrimos(){
-		
-		this.factor = 2;
-		
-		while(this.numero >= 2){
-			
-			if(this.numero%this.factor == 0){
-				
-				this.factorizacion.add(String.valueOf(this.factor));
-				this.numero = this.numero/this.factor;
-				
-			}else{
-				
-				this.factor++;
+	public LinkedList<String> calcularFactoresPrimos(int numero){		
+		int factor = 2;		
+		this.factorizacion.add(String.valueOf(numero)+":");
+		while(numero >= 2){			
+			if(numero%factor == 0){				
+				this.factorizacion.add(String.valueOf(factor));
+				numero = numero/factor;				
+			}else{				
+				factor++;
 			}
-		}
-		
+		}		
 		return this.factorizacion;
-	}
-
-	public int getNumeroOriginal(){
-	
-		return this.numeroOriginal;
 	}
 }
